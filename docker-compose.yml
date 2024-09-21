@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+    db:
+        image: postgres:14
+        restart: always
+        environment:
+            POSTGRES_USER: Pylypchuk
+            POSTGRES_PASSWORD: 3313
+            POSTGRES_DB: Lab1DB
+        ports:
+            - "5432:5432"
+        networks:
+            - lab1
+          
+    app:
+        build: ./app/
+        depends_on:
+            -  db
+        volumes:
+            - ./app:/usr/src/app
+        networks:
+            - lab1
+            
+networks:
+    lab1:
