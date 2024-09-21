@@ -8,18 +8,29 @@ services:
             POSTGRES_PASSWORD: 3313
             POSTGRES_DB: Lab1DB
         ports:
-            - "5432:5432"
+            - 5432:5432
         networks:
             - lab1
-          
     app:
         build: ./app/
         depends_on:
-            -  db
+            - db
         volumes:
             - ./app:/usr/src/app
         networks:
             - lab1
-            
+    flyway:
+        image: flyway/flyway:latest
+        command: [ "-configFiles=/flyway/conf/flyway.conf", "migrate" ]
+        volumes:
+            - ./flyway_conf:/flyway/conf
+            - ./flyway_sql:/flyway/sql
+        depends_on:
+            db:
+                condition: service_started
+            app:
+                condition: service_completed_successfully
+        networks:
+            - lab1
 networks:
     lab1:
