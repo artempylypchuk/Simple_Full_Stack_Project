@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Laboratory 3 DB</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<div class="container">
+				<div class="navbar-header">
+					<h1 class="navbar-brand">Laboratory 3 DB</h1>
+				</div>
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/participant">Participant</a></li>
+					<li class="nav-item"><a class="nav-link" href="/eduPlace">Eduplace</a></li>
+					<li class="nav-item"><a class="nav-link" href="/place">Place</a></li>
+					<li class="nav-item"><a class="nav-link" href="/test">Test</a></li>
+					<li class="nav-item"><a class="nav-link" href="/task">Task</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			{% block content %}
+				<a class="navbar-brand" href="https://github.com/Pulupchyk/lab_1_db">Valentin Kubrak, Artem Pylypchuk Github</a>
+			{% endblock %}
+		</div>
+	
+	</body>
+</html>

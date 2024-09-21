@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="table-responsive">
+	<form id="filter-form" method="POST" action="/{{action}}">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="subject">Предмет:</label>
+                <select class="form-control" id="subject" name="subject">
+                    <option value="">Всі</option>
+					<option value="Українська мова і література">Українська мова і література</option>
+					<option value="Історія України">Історія України</option>
+					<option value="Математика">Математика</option>
+					<option value="Фізика">Фізика</option>
+					<option value="Хімія">Хімія</option>
+                    <option value="Біологія">Біологія</option>
+					<option value="Географія">Географія</option>
+					<option value="Англійська мова">Англійська мова</option>
+					<option value="Французька мова">Французька мова</option>
+					<option value="Німецька мова">Німецька мова</option>
+					<option value="Іспанська мова">Іспанська мова</option>
+                </select>
+            </div>
+			<div class="form-group col-md-4">
+                <label for="region">Область:</label>
+                <select class="form-control" id="region" name="region">
+                    <option value="">Всі</option>
+                    <option value="Вінницька область">Вінницька область</option>
+					<option value="Волинська область">Волинська область</option>
+					<option value="Дніпропетровська область">Дніпропетровська область</option>
+					<option value="Донецька область">Донецька область</option>
+					<option value="Житомирська область">Житомирська область</option>
+					<option value="Закарпатська область">Закарпатська область</option>
+					<option value="Запорізька область">Запорізька область</option>
+					<option value="Івано-Франківська область">Івано-Франківська область</option>
+					<option value="Київська область">Київська область</option>
+					<option value="Кіровоградська область">Кіровоградська область</option>
+					<option value="Луганська область">Луганська область</option>
+					<option value="Львівська область">Львівська область</option>
+					<option value="Миколаївська область">Миколаївська область</option>
+					<option value="м.Київ">м.Київ</option>
+					<option value="Одеська область">Одеська область</option>
+					<option value="Полтавська область">Полтавська область</option>
+					<option value="Рівненська область">Рівненська область</option>
+					<option value="Сумська область">Сумська область</option>
+					<option value="Тернопільська область">Тернопільська область</option>
+					<option value="Харківська область">Харківська область</option>
+					<option value="Херсонська область">Херсонська область</option>
+					<option value="Хмельницька область">Хмельницька область</option>
+					<option value="Черкаська область">Черкаська область</option>
+					<option value="Чернівецька область">Чернівецька область</option>
+					<option value="Чернігівська область">Чернігівська область</option>
+                </select>
+            </div>
+			<div class="form-group col-md-4">
+                <label for="year">Рік:</label>
+                <select class="form-control" id="year" name="year">
+                    <option value="">Всі</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <button type="submit" name="btn_update" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+	<table id="results-table" class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th>Name</th>
+				<th>Region</th>
+				<th>Year</th>
+				<th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.regname }}</td>
+                <td>{{ row.zno_year }}</td>
+                <td>{{ row.average }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+	</table>
+</div>
+<script src="{{ url_for('static', filename='js/task.js') }}"></script>
+{% endblock %}

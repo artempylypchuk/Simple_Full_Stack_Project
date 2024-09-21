@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="table-responsive">
+	<table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+			<tr>
+				<th scope="col">placeid</th>
+				<th scope="col">regname</th>
+				<th scope="col">areaname</th>
+				<th scope="col">tername</th>
+				<th scope="col">tertypename</th>
+				<th scope="col">actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for place in places %}
+			<tr >
+				<td> {{place.placeid}} </td>
+				<td> {{place.regname}} </td>
+				<td> {{place.areaname}} </td>
+				<td> {{place.tername}} </td>
+				<td> {{place.tertypename}} </td>
+				<td>
+					<button type="button" class="btn btn-warning" name="btn_edit_place" data-placeid="{{place.placeid}}">Edit</button>
+					<button type="button" class="btn btn-danger" name="btn_delete_place" data-placeid="{{place.placeid}}">Delete</button>
+				</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="6" class="text-center"> 
+					<button type="button" class="btn btn-success" name="btn_new_place">New place</button> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="{{ url_for('static', filename='js/place.js') }}"></script>
+{% endblock %}

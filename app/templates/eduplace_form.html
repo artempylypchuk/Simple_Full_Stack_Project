@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+	<div class="card rounded-0">
+		<div class="card-header">
+			<h3 class="mb-0">{{form_name}}</h3>
+		</div>
+		<div class="card-body">
+			<form class="form"  action = "/{{action}}" method="POST">
+				<div class="form-group">
+					{{ form.eduplaceid.label }}
+					{{ form.eduplaceid(class_="form-control") }}
+					{% if form.eduplaceid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.eduplaceid.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.eoname.label }}
+					{{ form.eoname(class_="form-control") }}
+					{% if form.eoname.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.eoname.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.eotypename.label }}
+					{{ form.eotypename(class_="form-control") }}
+					{% if form.eotypename.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.eotypename.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.eoparent.label }}
+					{{ form.eoparent(class_="form-control") }}
+					{% if form.eoparent.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.eoparent.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.placeid.label }}
+					{{ form.placeid(class_="form-control") }}
+					{% if form.placeid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.placeid.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				{{ form.submit(class_="btn btn-success") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

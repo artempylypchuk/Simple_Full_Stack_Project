@@ -1,0 +1,113 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+	<div class="card rounded-0">
+		<div class="card-header">
+			<h3 class="mb-0">{{form_name}}</h3>
+		</div>
+		<div class="card-body">
+			<form class="form"  action = "/{{action}}" method="POST">
+				<div class="form-group">
+					{{ form.outid.label }}
+					{{ form.outid(class_="form-control") }}
+					{% if form.outid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.outid.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.birth.label }}
+					{{ form.birth(class_="form-control") }}
+					{% if form.birth.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.birth.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.sextypename.label }}
+					{{ form.sextypename(class_="form-control") }}
+					{% if form.sextypename.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.sextypename.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.regtypename.label }}
+					{{ form.regtypename(class_="form-control") }}
+					{% if form.regtypename.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.regtypename.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.classprofilename.label }}
+					{{ form.classprofilename(class_="form-control") }}
+					{% if form.classprofilename.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.classprofilename.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.classlangname.label }}
+					{{ form.classlangname(class_="form-control") }}
+					{% if form.classlangname.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.classlangname.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.zno_year.label }}
+					{{ form.zno_year(class_="form-control") }}
+					{% if form.zno_year.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.zno_year.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.placeid.label }}
+					{{ form.placeid(class_="form-control") }}
+					{% if form.placeid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.placeid.errors %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				{{ form.submit(class_="btn btn-success") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

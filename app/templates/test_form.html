@@ -1,0 +1,148 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+        <div class="card-header">
+            <h3 class="mb-0">{{form_name}}</h3>
+        </div>
+        <div class="card-body">
+            <form class="form"  action = "/{{action}}" method="POST">
+				<div class="form-group">
+					{{ form.testid.label }}
+					{{ form.testid(class_="form-control") }}
+					{% if form.testid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.testid.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.outid.label }}
+					{{ form.outid(class_="form-control") }}
+					{% if form.outid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.outid.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.name.label }}
+					{{ form.name(class_="form-control") }}
+					{% if form.name.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.name.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.status.label }}
+					{{ form.status(class_="form-control") }}
+					{% if form.status.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.status.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.ball100.label }}
+					{{ form.ball100(class_="form-control") }}
+					{% if form.ball100.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.ball100.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.ball12.label }}
+					{{ form.ball12(class_="form-control") }}
+					{% if form.ball12.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.ball12.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.ball.label }}
+					{{ form.ball(class_="form-control") }}
+					{% if form.ball.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.ball.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.adaptscale.label }}
+					{{ form.adaptscale(class_="form-control") }}
+					{% if form.adaptscale.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.adaptscale.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.langname.label }}
+					{{ form.langname(class_="form-control") }}
+					{% if form.langname.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.langname.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+
+				<div class="form-group">
+					{{ form.dpalevel.label }}
+					{{ form.dpalevel(class_="form-control") }}
+					{% if form.dpalevel.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.dpalevel.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+				
+				<div class="form-group">
+					{{ form.placeid.label }}
+					{{ form.placeid(class_="form-control") }}
+					{% if form.placeid.errors%}
+						<div class="alert alert-danger" role="alert">
+							{% for message in form.placeid.errors %}
+								 <div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{%endif%}
+				</div>
+                {{ form.submit(class_="btn btn-success") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

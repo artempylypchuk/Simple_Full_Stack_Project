@@ -20,16 +20,17 @@ create table if not exists eduplace(
 
 create table if not exists participant(
     outid varchar primary key,
-    birth smallint not null,
+    birth integer not null,
     sextypename varchar not null,
     regtypename varchar not null,
     classprofilename varchar,
     classlangname varchar,
-    zno_year smallint not null,
+    zno_year integer not null,
     placeid integer references place (placeid)
 );
 
 create table if not exists eduplace_participant(
+    relid serial primary key,
     eduplaceid integer references eduplace (eduplaceid),
     outid varchar references participant (outid),
     unique (eduplaceid, outid)
@@ -41,8 +42,8 @@ create table if not exists test(
     name varchar,
     status varchar,
     ball100 numeric(4, 1),
-    ball12 smallint,
-    ball smallint,
+    ball12 integer,
+    ball integer,
     adaptscale integer,
     langname varchar,
     dpalevel varchar,

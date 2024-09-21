@@ -10,27 +10,51 @@ services:
         ports:
             - 5432:5432
         networks:
-            - lab1
-    app:
-        build: ./app/
+            - lab3
+
+    old_app:
+        build: ./old_app/
         depends_on:
             - db
         volumes:
-            - ./app:/usr/src/app
+            - ./old_app:/usr/src/old_app
         networks:
-            - lab1
+            - lab3
+
     flyway:
         image: flyway/flyway:latest
         command: [ "-configFiles=/flyway/conf/flyway.conf", "migrate" ]
-        volumes:
+        volumes: 
             - ./flyway_conf:/flyway/conf
             - ./flyway_sql:/flyway/sql
         depends_on:
+            old_app:
+                condition: service_completed_successfully
             db:
                 condition: service_started
-            app:
+        networks:
+            - lab3
+
+    app:
+        build: ./app/
+        depends_on:
+            flyway:
+                condition: service_completed_successfully
+        ports:
+            - 5000:5000
+        volumes:
+            - ./app:/usr/src/app
+        networks:
+            - lab3
+
+    redis:
+        image: redis
+        restart: always
+        depends_on:
+            flyway:
                 condition: service_completed_successfully
         networks:
-            - lab1
+            - lab3
+
 networks:
-    lab1:
+    lab3:

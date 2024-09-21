@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="table-responsive">
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">eduplaceid</th>
+				<th scope="col">eoname</th>
+				<th scope="col">eotypename</th>
+				<th scope="col">eoparent</th>
+				<th scope="col">placeid</th>
+				<th scope="col">actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for eduplace in eduplaces %}
+			<tr >
+				<td> {{eduplace.eduplaceid}} </td>
+				<td> {{eduplace.eoname}} </td>
+				<td> {{eduplace.eotypename}} </td>
+				<td> {{eduplace.eoparent}} </td>
+				<td> {{eduplace.placeid}} </td>
+				<td>
+					<button type="button" class="btn btn-warning" name="btn_edit_eduplace" data-eduplaceid="{{eduplace.eduplaceid}}">Edit</button>
+					<button type="button" class="btn btn-danger" name="btn_delete_eduplace" data-eduplaceid="{{eduplace.eduplaceid}}">Delete</button>
+				</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="6" class="text-center"> 
+					<button type="button" class="btn btn-success" name="btn_new_eduplace">New eduplace</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="{{ url_for('static', filename='js/eduplace.js') }}"></script>
+{% endblock %}

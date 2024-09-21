@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="table-responsive">
+	<table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+			<tr>
+				<th scope="col">testid</th>
+				<th scope="col">outid</th>
+				<th scope="col">name</th>
+				<th scope="col">status</th>
+				<th scope="col">ball100</th>
+				<th scope="col">ball12</th>
+				<th scope="col">ball</th>
+				<th scope="col">adaptscale</th>
+				<th scope="col">langname</th>
+				<th scope="col">dpalevel</th>
+				<th scope="col">placeid</th>
+				<th scope="col">actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for test in tests %}
+			<tr >
+				<td> {{test.testid}} </td>
+				<td> {{test.outid}} </td>
+				<td> {{test.name}} </td>
+				<td> {{test.status}} </td>
+				<td> {{test.ball100}} </td>
+				<td> {{test.ball12}} </td>
+				<td> {{test.ball}} </td>
+				<td> {{test.adaptscale}} </td>
+				<td> {{test.langname}} </td>
+				<td> {{test.dpalevel}} </td>
+				<td> {{test.placeid}} </td>
+				<td>
+					<button type="button" class="btn btn-warning" name="btn_edit_test" data-testid="{{test.testid}}" data-outid="{{test.outid}}">Edit</button>
+					<button type="button" class="btn btn-danger" name="btn_delete_test" data-del="{{test.testid}}|{{test.outid}}">Delete</button>
+				</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="12" class="text-center"> 
+					<button type="button" class="btn btn-success" name="btn_new_test">New test</button> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="{{ url_for('static', filename='js/test.js') }}"></script>
+{% endblock %}
